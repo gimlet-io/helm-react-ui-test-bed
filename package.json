@@ -1,0 +1,43 @@
+{
+  "name": "helm-react-ui",
+  "version": "1.0.0",
+  "description": "A React component for editing Helm values.yaml",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "test": "jest",
+    "start": "webpack-dev-server --mode development",
+    "build": "NODE_ENV=production webpack --mode production"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.0.2",
+    "css-loader": "^1.0.0",
+    "jest": "^26.6.3",
+    "postcss": "^8.1.4",
+    "postcss-loader": "^4.0.4",
+    "react-hot-loader": "^4.3.11",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.8"
+  },
+  "dependencies": {
+    "@tailwindcss/ui": "^0.7.2",
+    "and": "0.0.3",
+    "helm-react-ui": "file:../helm-react-ui",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "tailwindcss": "^1.9.6"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules"
+    ]
+  }
+}

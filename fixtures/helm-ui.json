@@ -1,0 +1,32 @@
+[
+  {
+    "schemaID": "#/properties/namespaces",
+    "uiSchema": {
+
+    },
+    "metaData": {
+      "name": "Namespaces",
+      "icon": ""
+    }
+  },
+  {
+    "schemaID": "#/properties/namespace",
+    "uiSchema": {
+
+    },
+    "metaData": {
+      "name": "Namespace Default Quota",
+      "icon": ""
+    }
+  },
+  {
+    "schemaID": "#/properties/pod",
+    "uiSchema": {
+
+    },
+    "metaData": {
+      "name": "Pod Default Limits",
+      "icon": ""
+    }
+  }
+]
