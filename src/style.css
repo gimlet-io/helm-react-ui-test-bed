@@ -1,3 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.form-group {
+    @apply mx-2 my-4
+}
+
+.form-group fieldset {
+    /*@apply bg-yellow-100*/
+}
+
+.field-description {
+    @apply text-sm text-gray-500
+}
+
+.field-object {
+}
+
+.field-object legend {
+    @apply block text-sm font-bold leading-5 text-gray-700
+}
+
+.field label {
+    @apply block text-sm font-bold leading-5 text-gray-700
+}
+
+.control-label {
+}
+
+.form-control {
+    /*form-input block w-full sm:text-sm sm:leading-5*/
+    @apply form-input block w-full text-sm leading-5 mt-2
+}
