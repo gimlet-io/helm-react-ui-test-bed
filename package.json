@@ -28,6 +28,7 @@
     "webpack-dev-server": "^3.1.8"
   },
   "dependencies": {
+    "@graywolfai/react-heroicons": "^1.1.1",
     "@tailwindcss/ui": "^0.7.2",
     "and": "0.0.3",
     "helm-react-ui": "file:../helm-react-ui",
