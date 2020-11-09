@@ -440,7 +440,7 @@
         ]
       }
     },
-    "namespace": {
+    "namespace":    {
       "$id": "#/properties/namespace",
       "type": "object",
       "title": "The namespace schema",
@@ -562,8 +562,8 @@
     "pod": {
       "$id": "#/properties/pod",
       "type": "object",
-      "title": "The pod schema",
-      "description": "An explanation about the purpose of this instance.",
+      "title": "Pod resource allocation",
+      "description": "",
       "default": {},
       "examples": [
         {
@@ -581,17 +581,13 @@
           }
         }
       ],
-      "required": [
-        "limits",
-        "defaults",
-        "overcommit"
-      ],
+      "required": [],
       "properties": {
         "limits": {
           "$id": "#/properties/pod/properties/limits",
           "type": "object",
-          "title": "The limits schema",
-          "description": "An explanation about the purpose of this instance.",
+          "title": "Maximum allocation",
+          "description": "The maximum resources a pod can allocate",
           "default": {},
           "examples": [
             {
@@ -607,8 +603,8 @@
             "cpu": {
               "$id": "#/properties/pod/properties/limits/properties/cpu",
               "type": "integer",
-              "title": "The cpu schema",
-              "description": "An explanation about the purpose of this instance.",
+              "title": "CPU",
+              "description": "The hard ceiling for the app's CPU usage. The app will be throttled to this limit. 1000 CPU shares = 1 CPU core",
               "default": 0,
               "examples": [
                 4
@@ -617,8 +613,8 @@
             "memory": {
               "$id": "#/properties/pod/properties/limits/properties/memory",
               "type": "string",
-              "title": "The memory schema",
-              "description": "An explanation about the purpose of this instance.",
+              "title": "Memory",
+              "description": "The hard ceiling for the app's memory usage. The app will be RESTARTED if it reaches this limit.",
               "default": "",
               "examples": [
                 "8Gi"
@@ -630,8 +626,8 @@
         "defaults": {
           "$id": "#/properties/pod/properties/defaults",
           "type": "object",
-          "title": "The defaults schema",
-          "description": "An explanation about the purpose of this instance.",
+          "title": "Default limit",
+          "description": "A default resource allocation if one is not set for the application",
           "default": {},
           "examples": [
             {
@@ -647,8 +643,8 @@
             "cpu": {
               "$id": "#/properties/pod/properties/defaults/properties/cpu",
               "type": "string",
-              "title": "The cpu schema",
-              "description": "An explanation about the purpose of this instance.",
+              "title": "CPU",
+              "description": "The hard ceiling for the app's CPU usage. The app will be throttled to this limit. 1000 CPU shares = 1 CPU core",
               "default": "",
               "examples": [
                 "200m"
@@ -657,8 +653,8 @@
             "memory": {
               "$id": "#/properties/pod/properties/defaults/properties/memory",
               "type": "string",
-              "title": "The memory schema",
-              "description": "An explanation about the purpose of this instance.",
+              "title": "Memory",
+              "description": "The hard ceiling for the app's memory usage. The app will be RESTARTED if it reaches this limit.",
               "default": "",
               "examples": [
                 "200Mi"
@@ -670,8 +666,8 @@
         "overcommit": {
           "$id": "#/properties/pod/properties/overcommit",
           "type": "object",
-          "title": "The overcommit schema",
-          "description": "An explanation about the purpose of this instance.",
+          "title": "Cluster load factor",
+          "description": "Pods can be configured to burst well over their usual resource use",
           "default": {},
           "examples": [
             {
@@ -687,8 +683,8 @@
             "cpu": {
               "$id": "#/properties/pod/properties/overcommit/properties/cpu",
               "type": "integer",
-              "title": "The cpu schema",
-              "description": "An explanation about the purpose of this instance.",
+              "title": "CPU",
+              "description": "The bursting factor of an app. If all apps burst at the same time, they may become slow",
               "default": 0,
               "examples": [
                 10
@@ -697,8 +693,8 @@
             "memory": {
               "$id": "#/properties/pod/properties/overcommit/properties/memory",
               "type": "integer",
-              "title": "The memory schema",
-              "description": "An explanation about the purpose of this instance.",
+              "title": "Memory",
+              "description": "The bursting factor of an app. If all apps burst at the same time, apps could be RESTARTED",
               "default": 0,
               "examples": [
                 2

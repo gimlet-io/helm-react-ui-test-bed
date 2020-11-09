@@ -13,6 +13,9 @@
 .field-description {
     @apply text-sm text-gray-500
 }
+.help-block {
+    @apply text-sm text-gray-500 mt-1
+}
 
 .field-object {
 }
