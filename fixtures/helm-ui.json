@@ -11,6 +11,14 @@
   {
     "schemaID": "#/properties/namespace",
     "uiSchema": {
+      "overcommit": {
+        "cpu": {
+          "ui:widget": "range"
+        },
+        "memory": {
+          "ui:widget": "range"
+        }
+      }
     },
     "metaData": {
       "name": "Namespace Default Quota",
@@ -20,6 +28,14 @@
   {
     "schemaID": "#/properties/pod",
     "uiSchema": {
+      "overcommit": {
+        "cpu": {
+          "ui:widget": "range"
+        },
+        "memory": {
+          "ui:widget": "range"
+        }
+      }
     },
     "metaData": {
       "name": "Pod Default Resources",
