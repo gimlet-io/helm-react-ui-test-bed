@@ -467,8 +467,8 @@
         "budget": {
           "$id": "#/properties/namespace/properties/budget",
           "type": "object",
-          "title": "The budget schema",
-          "description": "An explanation about the purpose of this instance.",
+          "title": "Total resources",
+          "description": "The maximum resources apps can use in a namespace",
           "default": {},
           "examples": [
             {
@@ -486,8 +486,8 @@
             "cpu": {
               "$id": "#/properties/namespace/properties/budget/properties/cpu",
               "type": "integer",
-              "title": "The cpu schema",
-              "description": "An explanation about the purpose of this instance.",
+              "title": "CPU",
+              "description": "",
               "default": 0,
               "examples": [
                 32
@@ -496,8 +496,8 @@
             "memory": {
               "$id": "#/properties/namespace/properties/budget/properties/memory",
               "type": "string",
-              "title": "The memory schema",
-              "description": "An explanation about the purpose of this instance.",
+              "title": "Memory",
+              "description": "",
               "default": "",
               "examples": [
                 "64Gi"
@@ -506,8 +506,8 @@
             "storage": {
               "$id": "#/properties/namespace/properties/budget/properties/storage",
               "type": "string",
-              "title": "The storage schema",
-              "description": "An explanation about the purpose of this instance.",
+              "title": "Storage",
+              "description": "",
               "default": "",
               "examples": [
                 "500Gi"
@@ -519,8 +519,8 @@
         "overcommit": {
           "$id": "#/properties/namespace/properties/overcommit",
           "type": "object",
-          "title": "The overcommit schema",
-          "description": "An explanation about the purpose of this instance.",
+          "title": "Bursting factor",
+          "description": "The maximum bursting allowed in a namespace",
           "default": {},
           "examples": [
             {
@@ -536,8 +536,8 @@
             "cpu": {
               "$id": "#/properties/namespace/properties/overcommit/properties/cpu",
               "type": "integer",
-              "title": "The cpu schema",
-              "description": "An explanation about the purpose of this instance.",
+              "title": "CPU",
+              "description": "he maximum bursting factor in a namespace. If all apps burst at the same time, they may become slow",
               "default": 0,
               "examples": [
                 2
@@ -546,8 +546,8 @@
             "memory": {
               "$id": "#/properties/namespace/properties/overcommit/properties/memory",
               "type": "integer",
-              "title": "The memory schema",
-              "description": "An explanation about the purpose of this instance.",
+              "title": "Memory",
+              "description": "The maximum bursting factor in a namespace. If all apps burst at the same time, apps could be RESTARTED",
               "default": 0,
               "examples": [
                 1
@@ -666,7 +666,7 @@
         "overcommit": {
           "$id": "#/properties/pod/properties/overcommit",
           "type": "object",
-          "title": "Cluster load factor",
+          "title": "Bursting factor",
           "description": "Pods can be configured to burst well over their usual resource use",
           "default": {},
           "examples": [
@@ -703,9 +703,7 @@
           },
           "additionalProperties": true
         }
-      },
-      "additionalProperties": true
+      }
     }
-  },
-  "additionalProperties": true
+  }
 }
