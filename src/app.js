@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { hot } from 'react-hot-loader'
-import * as schema from '../fixtures/values.schema.json'
-import * as helmUIConfig from '../fixtures/helm-ui.json'
+// import * as schema from '../fixtures/namespaces/values.schema.json'
+// import * as helmUIConfig from '../fixtures/namespaces/helm-ui.json'
+import * as schema from '../fixtures/onechart/values.schema.json'
+import * as helmUIConfig from '../fixtures/onechart/helm-ui.json'
 import HelmUI from 'helm-react-ui'
 import './style.css'
 

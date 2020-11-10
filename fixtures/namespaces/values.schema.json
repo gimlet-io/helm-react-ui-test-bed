@@ -283,7 +283,7 @@
               "$id": "#/properties/pod/properties/limits/properties/memory",
               "type": "string",
               "title": "Memory",
-              "description": "The hard ceiling for the app's memory usage. The app will be RESTARTED if it reaches this limit.",
+              "description": "The hard ceiling for the app's memory usage. The app will be RESTARTED if it reaches this limit",
               "default": "8Gi",
               "examples": [
                 "8Gi"
