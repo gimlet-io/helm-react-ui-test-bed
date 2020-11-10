@@ -10,13 +10,14 @@ class App extends Component {
     super(props)
 
     this.state = {
-      values: {}
+      values: {},
+      nonDefaultValues: {}
     }
     this.setValues = this.setValues.bind(this);
   }
 
-  setValues (values) {
-    this.setState({ values: values })
+  setValues (values, nonDefaultValues) {
+    this.setState({ values: values, nonDefaultValues: nonDefaultValues })
   }
 
   render () {
@@ -27,9 +28,9 @@ class App extends Component {
             <button
               type="button"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-indigo active:bg-red-700 transition ease-in-out duration-150"
-              onClick={() => console.log(this.state.values)}
+              onClick={() => {console.log(this.state.values); console.log(this.state.nonDefaultValues)}}
             >
-              Get the YAML
+              Log the YAML
             </button>
           </span>
         </div>
