@@ -2,12 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.form-group {
+/* Hierarchy */
+
+.form-group .form-group {
     @apply mx-2 my-4
 }
-
-.form-group fieldset {
-    /*@apply bg-yellow-100*/
+.form-group .form-group label {
+    @apply block text-sm font-medium leading-5 text-gray-700
 }
 
 .field-description {
@@ -15,9 +16,6 @@
 }
 .help-block {
     @apply text-sm text-gray-500 mt-1
-}
-
-.field-object {
 }
 
 .field-object legend {
@@ -28,13 +26,11 @@
     @apply block text-sm font-bold leading-5 text-gray-700
 }
 
-.control-label {
-}
-
 .form-control {
-    /*form-input block w-full sm:text-sm sm:leading-5*/
     @apply form-input block w-full text-sm leading-5 mt-2
 }
+
+/* Arrays */
 
 .row .array-item-add {
     @apply text-left mx-2 my-4;
@@ -88,4 +84,38 @@
 
 .btn-info {
     display: none;
+}
+
+/* AdditionalProperties */
+
+.row {
+    @apply flex
+}
+
+.row .col-xs-5 {
+    @apply flex-1
+}
+
+.row .col-xs-5 label {
+    display: none;
+}
+
+.row .col-xs-2 {
+    @apply flex-none
+}
+
+.form-additional.form-group {
+    @apply my-0
+}
+
+.form-additional .form-group {
+    @apply my-0
+}
+
+.col-xs-2 .array-item-remove {
+    @apply my-2
+}
+
+.object-property-expand .btn-add {
+    @apply mt-4
 }

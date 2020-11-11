@@ -12,7 +12,12 @@ class App extends Component {
     super(props)
 
     this.state = {
-      values: {},
+      values: {
+        vars: {
+          myvar: "myvalue",
+          myvar2: "myvalue2",
+        }
+      },
       nonDefaultValues: {}
     }
     this.setValues = this.setValues.bind(this);
