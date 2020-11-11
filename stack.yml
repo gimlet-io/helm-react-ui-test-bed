@@ -1,0 +1,6 @@
+version: '3.3'
+services:
+    helm-ui:
+        ports:
+            - 3000
+        image: lalyos/helm-ui
