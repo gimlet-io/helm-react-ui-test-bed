@@ -88,7 +88,7 @@
       "$id": "#/properties/replicas",
       "type": "integer",
       "title": "Replicas",
-      "description": "replicas..",
+      "description": "",
       "default": 1,
       "minimum": 0,
       "maximum": 16,
