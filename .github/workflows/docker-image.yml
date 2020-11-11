@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  push-to-ghcr-io:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: |
+        echo "::group::docker build"
+        docker build --tag ghcr.io/lalyos/helm-ui:v1.0 .
+        echo "::endgroup::"
+
+        echo "::group::docker login"
+        echo ${{ secrets.DOCKER_PUSH }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
+        echo "::endgroup::"
+
+        echo "::group::docker push"
+        docker push ghcr.io/lalyos/helm-ui:v1.0
+        echo "::endgroup::"
