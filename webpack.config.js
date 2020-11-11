@@ -26,8 +26,10 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "public/"),
+    host: '0.0.0.0',
     port: 3000,
-    publicPath: "http://localhost:3000/dist/",
+    publicPath: "http://0.0.0.0:3000/dist/",
+    disableHostCheck: true,
     hotOnly: true
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
