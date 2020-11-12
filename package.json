@@ -1,5 +1,5 @@
 {
-  "name": "helm-react-ui",
+  "name": "helm-react-ui-testbed",
   "version": "1.0.0",
   "description": "A React component for editing Helm values.yaml",
   "main": "dist/bundle.js",
@@ -31,7 +31,7 @@
     "@graywolfai/react-heroicons": "^1.1.1",
     "@tailwindcss/ui": "^0.7.2",
     "and": "0.0.3",
-    "helm-react-ui": "file:../helm-react-ui",
+    "helm-react-ui": "github:gimlet-io/helm-react-ui#master",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "tailwindcss": "^1.9.6"
