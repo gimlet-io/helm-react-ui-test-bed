@@ -23,6 +23,10 @@ class App extends Component {
     this.setValues = this.setValues.bind(this);
   }
 
+  validationCallback (errors) {
+    console.log(errors);
+  };
+
   setValues (values, nonDefaultValues) {
     this.setState({ values: values, nonDefaultValues: nonDefaultValues })
   }
@@ -47,6 +51,8 @@ class App extends Component {
             config={helmUIConfig.default}
             values={this.state.values}
             setValues={this.setValues}
+            validate={true}
+            validationCallback={this.validationCallback}
           />
         </div>
       </div>
