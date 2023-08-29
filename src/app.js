@@ -34,6 +34,29 @@ class App extends Component {
   }
 
   render () {
+
+    const CustomDescription = (props) => {
+      const {description} = props
+      return (
+        <p className="text-sm text-gray-500">{description}</p>
+      )
+    }
+
+    const CustomTitle = (props) => {
+      const {title} = props
+      return (
+        <label className="block text-sm font-medium leading-5 text-gray-700">
+          {title} hello
+        </label>
+      )
+    }
+
+    const customFields = {
+      DescriptionField: CustomDescription,
+      TitleField: CustomTitle,
+      imageWidget: ImageWidget,
+    }
+
     return (
       <div>
         <div className="fixed bottom-0 right-0">
@@ -55,6 +78,7 @@ class App extends Component {
             setValues={this.setValues}
             validate={true}
             validationCallback={this.validationCallback}
+            fields={customFields}
           />
         </div>
       </div>
@@ -63,3 +87,34 @@ class App extends Component {
 }
 
 export default hot(module)(App)
+
+// Define a custom component for handling the root position object
+class ImageWidget extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { ...props.formData };
+    console.log(this.state)
+  }
+
+  onChange(name) {
+    return (event) => {
+      console.log(event.target.value)
+      this.setState(
+        {
+          [name]: event.target.value,
+        },
+        () => this.props.onChange(this.state)
+      );
+    };
+  }
+
+  render() {
+    const { repository, tag } = this.state;
+    return (
+      <div>
+        <input value={repository} onChange={this.onChange('repository')} />
+        <input value={tag} onChange={this.onChange('tag')} />
+      </div>
+    );
+  }
+}

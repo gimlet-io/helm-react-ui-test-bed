@@ -6,6 +6,9 @@
       "#/properties/replicas"
     ],
     "uiSchema": {
+      "#/properties/image": {
+        "ui:field": "imageWidget"
+      },
       "#/properties/replicas": {
         "ui:widget": "range"
       }
