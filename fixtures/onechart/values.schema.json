@@ -87,7 +87,7 @@
           "type": "string",
           "title": "Dockerfile",
           "description": "",
-          "default": "Dockerfile"
+          "default": ""
         }
       }
     },
