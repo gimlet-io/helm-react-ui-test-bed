@@ -81,6 +81,13 @@
           "examples": [
             "latest"
           ]
+        },
+        "dockerfile": {
+          "$id": "#/properties/image/properties/dockerfile",
+          "type": "string",
+          "title": "Dockerfile",
+          "description": "",
+          "default": ""
         }
       }
     },
