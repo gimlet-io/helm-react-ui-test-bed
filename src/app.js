@@ -20,6 +20,9 @@ class App extends Component {
         image: {
           repository: "ghcr.io/x/y",
           tag: "{{ .SHA }}"
+        },
+        sealedSecrets: {
+          EXISTING_KEY: "segoewijgoiwerjg9ierjgoirejguiehjrgiuherh7YUGTYUGVFSDYGVBFDu8HUYHFBVDUYTGFBYUT"
         }
       },
       nonDefaultValues: {}
@@ -34,11 +37,18 @@ class App extends Component {
   };
 
   setValues (values, nonDefaultValues) {
+    if (values.sealedSecrets?.newKey?.startsWith('toSeal')) {
+      // TODO initiate seal function here, then set values
+      values.sealedSecrets={
+        ...values.sealedSecrets,
+        newKey: values.sealedSecrets.newKey.replace(/^toSeal: /, ''),
+      }
+    }
+
     this.setState({ values: values, nonDefaultValues: nonDefaultValues })
   }
 
   render () {
-
     const CustomDescription = (props) => {
       const {description} = props
       return (
@@ -50,7 +60,7 @@ class App extends Component {
       const {title} = props
       return (
         <label className="block text-sm font-medium leading-5 text-gray-700">
-          {title} hello
+          {title}
         </label>
       )
     }
@@ -59,6 +69,7 @@ class App extends Component {
       DescriptionField: CustomDescription,
       TitleField: CustomTitle,
       imageWidget: ImageWidget,
+      sealedSecretWidget: SealedSecretWidget,
     }
 
     return (
@@ -260,6 +271,65 @@ class ImageWidget extends Component {
           }
         </fieldset>
       </div>
+      </>
+    );
+  }
+}
+
+// Define a custom component for handling the root position object
+class SealedSecretWidget extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: props.formData === "New Value" ? "" : props.formData,
+      sealed: props.formData === "New Value" ? false : true,
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.formData !== this.props.formData) {
+      this.setState({
+        value: this.props.formData,
+        sealed: true,
+      });
+    }
+  }
+
+  onChange() {
+    return (event) => {
+      this.setState({
+        value: event.target.value,
+      });
+    };
+  }
+
+  seal() {
+    return () => {
+      this.props.onChange("toSeal: " + this.state.value)
+    };
+  }
+
+  render() {
+    return (
+      <>
+        <div className="form-group field field-string flex">
+          { this.state.sealed &&
+          <>
+          <textarea disabled rows="5" className="form-control bg-gray-400" id="root_repository" required="" placeholder="" type="text" list="examples_root_repository" value={this.state.value} onChange={this.onChange()} />
+          </>
+          }
+          { !this.state.sealed &&
+          <>
+          <textarea rows="5" className="form-control" id="root_repository" required="" placeholder="" type="text" list="examples_root_repository" value={this.state.value} onChange={this.onChange()} />
+          <button className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded h-12"
+            onClick={this.seal()}
+          >
+            Seal
+          </button>
+          </>
+          }
+        </div>
       </>
     );
   }

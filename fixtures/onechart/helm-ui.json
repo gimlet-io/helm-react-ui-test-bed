@@ -63,7 +63,7 @@
     "uiSchema": {
       "#/properties/sealedSecrets": {
         "additionalProperties": {
-          "type": "string"
+          "ui:field": "sealedSecretWidget"
         }
       }
     },
